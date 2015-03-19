@@ -16,14 +16,12 @@ public class Sorts
         }
       }
     }
+    System.out.println(list);
   }
 
   public void selectionSort(int[] list)
   {
-    for(int i = 0; i < list.length; i++)
-    {
-      
-    }
+    //your code here
   }
 
   public void insertionSort(int[] list)
