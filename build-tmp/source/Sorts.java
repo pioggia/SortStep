@@ -16,17 +16,40 @@ public class Sorts
         }
       }
     }
-    System.out.println(list);
   }
 
   public void selectionSort(int[] list)
   {
-    //your code here
+    int flag, num;
+    for(int i = 0; i<list.length-1; i++)
+    {
+      flag = i;
+      for(int a = i + 1; a<list.length; a++)
+      {
+        if(list[a]<list[flag])
+        {
+          flag = a;
+        }
+      }
+      num = list[i];
+      list[i] = list[flag];
+      list[flag] = num;
+    }
   }
 
   public void insertionSort(int[] list)
   {
-    //your code here
+    for(int outer = 1; outer<list.length; outer++)
+    {
+      int p = outer;
+      int num = list[p];
+      while(p>0 && list[p-1]>num)
+      {
+        list[p] = list[p-1];
+        p--;
+      }
+      list[p] = num;
+    }
   }
 
   private void merge(int[] a, int first, int mid, int last)
