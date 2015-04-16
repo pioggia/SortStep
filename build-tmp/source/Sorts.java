@@ -54,12 +54,48 @@ public class Sorts
 
   private void merge(int[] a, int first, int mid, int last)
   {
-    //your code here
+    int [] nums = new int[a.length];
+    int x = first;
+    int y = mid + 1;
+    for(int i = first; i<=last; i++) // for length of array
+    {
+      if(x>mid) // first half done
+      {
+        nums[i] = a[y]; // copy the rest over from other half
+        y++;
+      }
+      else if(y>last) // second half done
+      {
+        nums[i] = a[x]; // copy the rest over from other half
+        x++;
+      }
+      else if(a[x] > a[y])
+      {
+        nums[i] = a[y];
+        y++;
+      }
+      else
+      {
+        nums[i] = a[x];
+        x++;
+      }
+    }
+    for(int i =first; i<= last; i++)
+    {
+      a[i] = nums[i];
+    }
+    System.out.println(Arrays.toString(a));
   }
 
   public void mergeSort(int[] a, int first, int last)
   {
-    //your code here
+    int mid = (first+last)/2;
+    if((first<last))
+    {
+      mergeSort(a, first, mid);
+      mergeSort(a, mid+1, last);
+    }
+    merge(a, first, mid, last);
   }
 }
 
